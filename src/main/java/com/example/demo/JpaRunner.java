@@ -23,7 +23,7 @@ public class JpaRunner implements ApplicationRunner{
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		Account acc = new Account();
-		acc.setUsername("mira3");
+		acc.setUsername("mira1");
 		acc.setPassword("1234");
 		
 		Session session = entityManager.unwrap(Session.class);
