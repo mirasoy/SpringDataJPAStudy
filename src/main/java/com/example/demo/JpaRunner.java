@@ -22,22 +22,20 @@ public class JpaRunner implements ApplicationRunner{
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		Account acc = new Account();
-		acc.setUsername("mira1");
-		acc.setPassword("1234");
-		
-		Study study = new Study();
-		study.setName("study1");
-		acc.getStudies().add(study);
-		study.setOwner(acc);
-		
-		acc.addStudy(study);
+		/*
+		 * Post post = new Post(); post.setTitle("post title");
+		 * 
+		 * Comment comment = new Comment(); comment.setComment("commnet1");
+		 * post.addComment(comment);
+		 * 
+		 * Comment comment1 = new Comment(); comment1.setComment("commnet2");
+		 * post.addComment(comment1);
+		 */
 		
 		Session session = entityManager.unwrap(Session.class);
-		session.save(acc);
-		session.save(study);
-		//entityManager.persist(acc);
 		
+		Post post = session.load(Post.class,1L);
+;		session.delete(post);
 	}
 
 	
