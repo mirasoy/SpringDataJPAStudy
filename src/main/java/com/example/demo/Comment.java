@@ -8,7 +8,23 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Comment {
 
+	@Id
+	@GeneratedValue
+	private Long id;
 
+	private String comment;
+
+	@ManyToOne
+	private Post post;
+
+	public Integer likeCount = 0;
+
+	
+	
+	
+	
+	
+	
 	public Long getId() {
 		return id;
 	}
@@ -33,11 +49,13 @@ public class Comment {
 		this.post = post;
 	}
 
-	@Id @GeneratedValue
-	private Long  id;
+	public Integer getLikeCount() {
+		return likeCount;
+	}
 
-	private String comment;
+	public void setLikeCount(Integer likeCount) {
+		this.likeCount = likeCount;
+	}
+
 	
-	@ManyToOne
-	private Post post;
 }
