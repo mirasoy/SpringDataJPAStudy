@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
@@ -23,15 +25,11 @@ public class PostRepositoryTest {
 	
 	@Test
 	public void crudRepository() {
+		Post post = new Post();
+		assertFalse(postRepository.contains(post));
 		
-		Post post =  createPost("Spring post");
-		
-		List <Post> posts = postRepository.findMyPosts();
-		assertEquals(posts.size(), 1);
-		
-		postRepository.delete(post);
-		posts = postRepository.findMyPosts();
-		assertEquals(posts.size(), 0);
+		post =  createPost("Spring post");
+		assertTrue(postRepository.contains(post));
 	}
 
 	private Post createPost(String tiltle) {
