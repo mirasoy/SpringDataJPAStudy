@@ -2,6 +2,8 @@ package com.example.demo;
 
 import static org.junit.Assert.assertTrue;
 
+import java.util.Optional;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.example.demo.post.Post;
 import com.example.demo.post.PostRepository;
+import com.example.demo.post.QPost;
+import com.querydsl.core.types.Predicate;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -22,16 +26,14 @@ public class PostRepositoryTest {
 	@Autowired
 	PostRepository postRepository;
 	 
-	@Autowired
-	ApplicationContext applcinContext;
-	
 	@Test
 	public void crudRepository() {
 		Post post = new Post();
 		post.setTitle("Spring post");
-		postRepository.save(post.publicsh());
-		
-		assertTrue(postRepository.contains(post));
+		postRepository.save(post);
+		Predicate predicate = QPost.post.title.containsIgnoreCase("???");
+		Optional<Post> post2 = postRepository.findOne(predicate);
+	
 	}
 
 	
