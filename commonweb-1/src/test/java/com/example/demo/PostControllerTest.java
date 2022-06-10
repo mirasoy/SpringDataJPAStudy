@@ -1,7 +1,9 @@
 package com.example.demo;
 
+import static org.hamcrest.CoreMatchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.Test;
@@ -24,15 +26,29 @@ public class PostControllerTest {
 	PostRepository postRepository;
 
 	@Test
-	public void getPost() {
+	public void getPost() throws Exception {
 		Post post = new Post();
 		post.setTitle("spring title is this!");
 		postRepository.save(post);
-		try {
-			mvc.perform(get("/posts/" + post.getId())).andDo(print()).andExpect(status().isOk());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
+		mvc.perform(get("/posts/" + post.getId())).andDo(print()).andExpect(status().isOk());
+	}
+	
+	
+	
+	@Test
+	public void getPosts() throws Exception {
+		Post post = new Post();
+		post.setTitle("spring title is this!");
+		postRepository.save(post);
+		Post post2 = new Post();
+		post2.setTitle("pring title is this!");
+		postRepository.save(post2);
+		
+		mvc.perform(get("/posts")
+		.param("page","0")
+		.param("size","10")
+		.param("sort","title")
+		).andDo(print()).andExpect(status().isOk())
+		.andExpect(jsonPath("$.content[0].title", is("pring title is this")));
 	}
 }
