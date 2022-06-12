@@ -37,18 +37,26 @@ public class PostControllerTest {
 	
 	@Test
 	public void getPosts() throws Exception {
-		Post post = new Post();
-		post.setTitle("spring title is this!");
-		postRepository.save(post);
-		Post post2 = new Post();
-		post2.setTitle("pring title is this!");
-		postRepository.save(post2);
+		createPost();
 		
 		mvc.perform(get("/posts")
-		.param("page","0")
+		.param("page","2")
 		.param("size","10")
 		.param("sort","title")
 		).andDo(print()).andExpect(status().isOk())
 		.andExpect(jsonPath("$.content[0].title", is("pring title is this")));
+	}
+
+
+
+	private void createPost() {
+		int postCount  = 100;
+		while(postCount > 0 ) {
+			
+			Post post2 = new Post();
+			post2.setTitle("pring title is this! >"+postCount);
+			postRepository.save(post2);
+			postCount--;
+		}
 	}
 }
