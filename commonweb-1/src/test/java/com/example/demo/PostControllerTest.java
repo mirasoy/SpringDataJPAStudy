@@ -14,6 +14,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import com.example.demo.post.Post;
+import com.example.demo.post.PostRepository;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -44,7 +47,7 @@ public class PostControllerTest {
 		.param("size","10")
 		.param("sort","title")
 		).andDo(print()).andExpect(status().isOk())
-		.andExpect(jsonPath("$.content[0].title", is("pring title is this")));
+		.andExpect(jsonPath("$._embedded.postList[0].title", is("pring title is this")));
 	}
 
 
