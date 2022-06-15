@@ -11,6 +11,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.domain.JpaSort;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.example.demo.post.Post;
@@ -66,11 +68,10 @@ public class PostRepositoryTest {
 	public void findByTitle() {
 		
 		createPost();
-		List<Post> list = postRepository.findByTitle("spring title is this!");
+		List<Post> list = postRepository.findByTitle("spring title is this!", JpaSort.unsafe("length(title)"));
 		assertThat(list.size()).isEqualTo(1);
 		
 	}
-	
 
 	private Post createPost() {
 		Post post = new Post();
