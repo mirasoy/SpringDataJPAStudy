@@ -44,6 +44,11 @@ public class Post {
 	public void setCereate(Date cereate) {
 		this.cereate = cereate;
 	}
+
+	@Override
+	public String toString() {
+		return "Post [id=" + id + ", title=" + title + ", cereate=" + cereate + "]";
+	}
 	
 	
 	
