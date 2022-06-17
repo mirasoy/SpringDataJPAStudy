@@ -53,8 +53,8 @@
 | 스프링 데이터 JPA 4. Sort|3:33|완료|
 | 스프링 데이터 JPA 5. Named Parameter와 SpEL|3:56|완료|
 | 스프링 데이터 JPA 6. Update 쿼리|9:45|완료|
-| 스프링 데이터 JPA 7. EntityGraph|14:36|2022-06-17 |
-| 스프링 데이터 JPA 8. Projection|14:05|2022-06-18 |
+| 스프링 데이터 JPA 7. EntityGraph|14:36|완료|
+| 스프링 데이터 JPA 8. Projection|14:05|2022-06-18|
 | 스프링 데이터 JPA 9. Specifications|10:07|2022-06-18 |
 | 스프링 데이터 JPA 10. Query by Example|10:27|2022-06-19 |
 | 스프링 데이터 JPA 11. 트랜잭션|14:51|2022-06-19|
