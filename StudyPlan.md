@@ -50,9 +50,9 @@
 | 스프링 데이터 JPA 1. JpaRepository|10:14|완료|
 | 스프링 데이터 JPA 2. JpaRepository.save()  메소드|13:12|완료|
 | 스프링 데이터 JPA 3. JPA 쿼리 메소드|7:54|완료|
-| 스프링 데이터 JPA 4. Sort|3:33||완료|
-| 스프링 데이터 JPA 5. Named Parameter와 SpEL|3:56||완료|
-| 스프링 데이터 JPA 6. Update 쿼리|9:45|2022-06-17 |
+| 스프링 데이터 JPA 4. Sort|3:33|완료|
+| 스프링 데이터 JPA 5. Named Parameter와 SpEL|3:56|완료|
+| 스프링 데이터 JPA 6. Update 쿼리|9:45|완료|
 | 스프링 데이터 JPA 7. EntityGraph|14:36|2022-06-17 |
 | 스프링 데이터 JPA 8. Projection|14:05|2022-06-18 |
 | 스프링 데이터 JPA 9. Specifications|10:07|2022-06-18 |
