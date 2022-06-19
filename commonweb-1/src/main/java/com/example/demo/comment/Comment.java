@@ -12,18 +12,19 @@ import com.example.demo.post.Post;
 
 @Entity
 //@NamedEntityGraph(name = "Commnet.post", attributeNodes = @NamedAttributeNode("post"))
-public class Commnet {
+public class Comment {
 
 	@Id @GeneratedValue
 	private Long id;
 	
-	private String commnet;
+	private String comment;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Post post;
 	
+	private int up;
 	
-	
+	private int down;
 
 	public Long getId() {
 		return id;
@@ -33,12 +34,12 @@ public class Commnet {
 		this.id = id;
 	}
 
-	public String getCommnet() {
-		return commnet;
+	public String getComment() {
+		return comment;
 	}
 
-	public void setCommnet(String commnet) {
-		this.commnet = commnet;
+	public void setComment(String comment) {
+		this.comment = comment;
 	}
 
 	public Post getPost() {
@@ -49,10 +50,23 @@ public class Commnet {
 		this.post = post;
 	}
 
-	@Override
-	public String toString() {
-		return "Commnet [id=" + id + ", commnet=" + commnet + ", post=" + post + "]";
+	public int getUp() {
+		return up;
 	}
+
+	public void setUp(int up) {
+		this.up = up;
+	}
+
+	public int getDown() {
+		return down;
+	}
+
+	public void setDown(int down) {
+		this.down = down;
+	}
+
+	
 	
 	
 	

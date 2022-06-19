@@ -10,8 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.example.demo.comment.Commnet;
-import com.example.demo.comment.CommnetRepository;
+import com.example.demo.comment.Comment;
+import com.example.demo.comment.CommentOnly;
+import com.example.demo.comment.CommentRepository;
+import com.example.demo.comment.CommentSummary;
 import com.example.demo.post.Post;
 import com.example.demo.post.PostRepository;
 
@@ -21,7 +23,7 @@ import com.example.demo.post.PostRepository;
 public class CommnetRepositoryTest {
 
 	@Autowired
-	CommnetRepository commnetRepository;
+	CommentRepository commnetRepository;
 	
 	@Autowired
 	PostRepository  postRepository;
@@ -39,6 +41,21 @@ public class CommnetRepositoryTest {
 	@Test
 	public void getCommnet2() {
 		
+		Post post = createPost();
+		
+		Comment comment= new Comment();
+		comment.setComment("commnet");
+		comment.setPost(post);
+		comment.setUp(10);
+		comment.setDown(3);
+		commnetRepository.save(comment);
+//		List<CommentSummary> list = commnetRepository.findByPost_Id(post.getId(), CommentSummary.class);
+//		System.out.println("============================");
+//		list.forEach(c -> System.out.println(c.getVotes()));
+		
+		List<CommentOnly> list = commnetRepository.findByPost_Id(post.getId(), CommentOnly.class);
+		System.out.println("============================");
+		list.forEach(c -> System.out.println(c.getComment()));
 	}
 
 	private Post createPost() {
