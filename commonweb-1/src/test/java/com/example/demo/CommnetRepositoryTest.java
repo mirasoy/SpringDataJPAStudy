@@ -1,7 +1,5 @@
 package com.example.demo;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import java.util.List;
 
 import org.junit.Test;
@@ -13,7 +11,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.example.demo.comment.Comment;
 import com.example.demo.comment.CommentOnly;
 import com.example.demo.comment.CommentRepository;
-import com.example.demo.comment.CommentSummary;
 import com.example.demo.post.Post;
 import com.example.demo.post.PostRepository;
 
