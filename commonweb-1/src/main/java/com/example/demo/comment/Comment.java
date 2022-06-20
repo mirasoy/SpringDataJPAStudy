@@ -26,6 +26,8 @@ public class Comment {
 	
 	private int down;
 
+	private boolean best;
+	
 	public Long getId() {
 		return id;
 	}
@@ -64,6 +66,14 @@ public class Comment {
 
 	public void setDown(int down) {
 		this.down = down;
+	}
+
+	public boolean isBest() {
+		return best;
+	}
+
+	public void setBest(boolean best) {
+		this.best = best;
 	}
 
 	

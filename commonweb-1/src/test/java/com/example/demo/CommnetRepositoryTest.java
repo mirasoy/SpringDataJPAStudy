@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.example.demo.comment.Comment;
 import com.example.demo.comment.CommentOnly;
 import com.example.demo.comment.CommentRepository;
+import com.example.demo.comment.CommentSpecs;
 import com.example.demo.post.Post;
 import com.example.demo.post.PostRepository;
 
@@ -55,6 +56,11 @@ public class CommnetRepositoryTest {
 		list.forEach(c -> System.out.println(c.getComment()));
 	}
 
+	@Test
+	public void SpecificationsTest() {
+		commnetRepository.findAll(CommentSpecs.isGood());
+	}
+	
 	private Post createPost() {
 		Post post = new Post();
 		post.setTitle("spring title is this!");
