@@ -6,6 +6,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.example.demo.comment.Comment;
@@ -59,6 +61,20 @@ public class CommnetRepositoryTest {
 	@Test
 	public void SpecificationsTest() {
 		commnetRepository.findAll(CommentSpecs.isGood());
+	}
+	
+	@Test
+	public void queryByExample() {
+		Comment prove = new Comment();
+		prove.setBest(true);
+		
+		ExampleMatcher exampleMatcher = ExampleMatcher.matchingAny().withIgnorePaths("up", "down");
+		
+		Example<Comment> example = Example.of(prove,exampleMatcher);
+		commnetRepository.findAll(example);
+				
+	
+	
 	}
 	
 	private Post createPost() {
