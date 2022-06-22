@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -19,7 +20,7 @@ import com.example.demo.post.PostRepository;
 
 
 @RunWith(SpringRunner.class)
-@DataJpaTest
+@SpringBootTest
 public class CommnetRepositoryTest {
 
 	@Autowired
@@ -49,9 +50,6 @@ public class CommnetRepositoryTest {
 		comment.setUp(10);
 		comment.setDown(3);
 		commnetRepository.save(comment);
-//		List<CommentSummary> list = commnetRepository.findByPost_Id(post.getId(), CommentSummary.class);
-//		System.out.println("============================");
-//		list.forEach(c -> System.out.println(c.getVotes()));
 		
 		List<CommentOnly> list = commnetRepository.findByPost_Id(post.getId(), CommentOnly.class);
 		System.out.println("============================");
