@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedAttributeNode;
 import javax.persistence.NamedEntityGraph;
+import javax.persistence.PrePersist;
 
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
@@ -105,6 +106,13 @@ public class Comment {
 	}
 
 	
+	@PrePersist
+	public void prePersist() {
+		
+		System.err.println("__prePersist___");
+		created = new Date(2001,01,01);
+		
+	}
 	
 	
 	
