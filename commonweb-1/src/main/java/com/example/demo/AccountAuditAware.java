@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.acaount.Account;
+import com.example.demo.account.Account;
 
 
 @Service
